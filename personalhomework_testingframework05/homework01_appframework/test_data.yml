@@ -1,0 +1,59 @@
+Data:
+  -
+    - QQQ
+    - 男
+    - 19912341099
+
+
+
+
+
+Steps:
+#  - webdriver:
+#      remote:
+#        - http://localhost:4723/wd/hub
+#        - ${caps}
+#  - implicitly_wait: 5
+  - find_element:
+      - xpath
+      - //*[@text='通讯录']
+  - click
+#  - find_element:
+#      - android_uiautomator
+#      - new UiScrollable(new UiSelector()'
+#          '.scrollable(true).instance(0))'
+#          '.scrollIntoView(new UiSelector()'
+#          '.text("添加成员").instance(0));
+#  - click
+  - find_element:
+      - xpath
+      - //*[@text='添加成员']
+  - click
+  - find_element:
+      - xpath
+      - //*[@text='手动输入添加']
+  - click
+  - find_element:
+      - xpath
+      - //*[contains(@text, '姓名')]/../android.widget.EditText
+  - send_keys:('name, gender, phonenumber)'[0]
+  - find_element:
+      - xpath
+      - //*[contains(@text, '性别')]/..//*[@text='男']
+  - click
+  - find_element:
+      - xpath
+      - //*[@text='男']
+  - click
+  - find_element:
+    - xpath
+    - //*[contains(@text, '手机')]/../android.widget.EditText
+  - send_keys:('name, gender, phonenumber)'[2]
+  - find_element:
+      - xpath
+      - //*[@text='保存']
+  - click
+  - find_element:
+      - xpath
+      - //*[@text='添加成功']
+  - text
